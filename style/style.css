@@ -1,66 +1,346 @@
 * {
-  margin: 0px;
-  padding: 0px;
-  border: none;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding-top: 100px;
+  line-height: 1.5;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff9f9;
+  color: white;
+  padding: 0;
+}
+
+.logo img {
+  position: absolute;
+  left: 0;
+  margin-top: -70px;
+  padding-left: 20px;
+  width: 150px;
+  height: auto;
+}
+
+#portal_aluno {
+  position: absolute;
+  right: 20px;
+  background-color: #4e423e;
+  color: #f6f2f2;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#portal_aluno:hover {
+  background-color: #ff7f50;
+  color: #000;
+}
+#menu a {
+  color: rgb(0, 0, 0);
+  margin-right: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#menu a:hover {
+  color: #ff7f50;
+  animation: translateY 0.8s infinite alternate;
+}
+
+@keyframes translateY {
+  from {
+    transform: translateY(0) scale(1);
   }
+  to {
+    transform: translateY(-8px) scale(1.1);
+  }
+}
+
+.principal {
+  background-color: #ea835e;
+  color: rgb(10, 9, 9);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.principal h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+
+.principal p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.principal_btn {
+  background-color: #070606;
+  color: rgb(255, 255, 255);
+  padding: 15px 30px;
+  text-decoration: none;
+  margin: 10px;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.principal_btn:hover {
+  color: #ff7f50;
+  animation: scaleButton 0.8s alternate infinite;
+}
+
+@keyframes scaleButton {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.content {
+  padding: 50px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sobre-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: row;
+}
+
+.sobre-container img {
+  max-width: 500px;
+  height: auto;
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+h2 {
+  font-size: 38px;
+  margin-bottom: 24px;
+}
+
+p {
+  margin-bottom: 14px;
+  line-height: 150%;
+}
+
+.plans-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.plans-title {
+  font-size: 32px;
+  color: #060505;
+  margin-bottom: 20px;
+}
+
+.plans-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.plan {
+  background-color: #ea835e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 100%;
+  max-width: 250px;
+  min-height: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #040404;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #090909;
+  margin-top: auto;
+}
+
+.container-localizacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.container-localizacao h2 {
+  font-size: 32px;
+  color: #050505;
+  margin-bottom: 20px;
+}
+
+.container-localizacao p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.btn-whatsapp {
+  position: fixed;
+  bottom: 14px;
+  right: 24px;
+  z-index: 99;
+}
+
+.btn-whatsapp img {
+  max-width: 74px;
+  transition: transform 0.4s;
+}
+
+.btn-whatsapp img:hover {
+  transform: scale(1.15);
+}
+
+.btn-whatsapp .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  width: 120px;
+  top: 8px;
+  left: -144px;
+  padding: 4px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-whatsapp:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+
   header {
-    display: flex;
-    background-color: #333;
-    color: white;
-    padding: 15px;
-    align-items: center;
-    justify-content: center;
+    height: 80px;
+    justify-content: flex-end;
+    padding-right: 10px;
   }
-  .logo {
-    position: absolute;
-    left: 0;
-    padding: 20px;
+
+  .logo,
+  #menu {
+    display: none;
   }
-  .logo a {
-    color: white;
-    font-size: 24px;
-    text-decoration: none;
-  }
-  #menu a {
-    color: white;
-    margin-right: 20px;
-    text-decoration: none;
-  }
+
   #portal_aluno {
-    position: absolute;
-    right: 0;
-    background-color: #ff7f50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 8px 16px;
   }
+
   .principal {
-    background-color: #000;
-    color: white;
-    padding: 50px 0;
-    text-align: center;
+    padding: 80px 10px;
   }
+
+  .principal h1 {
+    font-size: 28px;
+  }
+
+  .principal p {
+    font-size: 16px;
+  }
+
   .principal_btn {
-    background-color: #ff7f50;
-    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .content {
+    flex-direction: column;
+    padding: 30px 10px;
+  }
+
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-container img {
+    max-width: 100%;
+    margin: 0 auto 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    height: 60px;
+  }
+
+  #portal_aluno {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .principal h1 {
+    font-size: 24px;
+  }
+
+  .principal p {
+    font-size: 14px;
+  }
+
+  .principal_btn {
     padding: 10px 20px;
-    text-decoration: none;
-    margin: 10px;
-    display: inline-block;
+    font-size: 14px;
   }
-  .content{
-    padding: 50px;
-    text-align: center;
+
+  .content {
+    padding: 20px 5px;
   }
-  footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+
+  .sobre-container {
+    padding: 0 10px;
   }
+
+  .plans-container {
+    padding: 10px 0;
+  }
+}
