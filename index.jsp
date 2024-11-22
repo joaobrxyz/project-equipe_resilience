@@ -27,7 +27,7 @@
     <section class="principal" data-aos="zoom-out-left">
       <h1>Torne-se Imparável</h1>
       <p>Experimente nossos treinos de boxe e Jiu-jítsu de alta intensidade liderados pelos melhores treinadores.</p>
-      <a href="sejaAluno.jsp" class="principal_btn">SEJA ALUNO</a>
+      <a href="sejaAluno.html" class="principal_btn">SEJA ALUNO</a>
       <a href="souAluno.jsp" class="principal_btn">JÁ SOU ALUNO</a>
     </section>
     
