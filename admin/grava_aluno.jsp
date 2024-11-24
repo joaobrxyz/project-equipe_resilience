@@ -45,5 +45,5 @@
 
     out.print("<h2>Dados gravados com sucesso!!!");
     out.print("<br>");
-    out.print("<a href='admin.jsp'>Voltar</a>");
+    out.print("<a href='index.jsp'>Voltar</a>");
 %>
