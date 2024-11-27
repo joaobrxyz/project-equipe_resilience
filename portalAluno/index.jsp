@@ -40,102 +40,105 @@
     conexao = DriverManager.getConnection(enderecoBD, usuarioBD, senhaBD);
 
     // Comando para consultar no banco
-    String sql_aluno = "SELECT * from alunos where cpf =34567890123";
+    String sql_aluno = "SELECT * from alunos";
+    String sql_pagamento = "Select * from pagamentos";
+    String sql_plano = "SELECT * from planos ";  
 
     // Cria a variável do tipo PreparedStatement
     PreparedStatement stm_aluno = conexao.prepareStatement(sql_aluno); 
+    PreparedStatement stm_pagamento = conexao.prepareStatement(sql_pagamento);
+    PreparedStatement stm_plano = conexao.prepareStatement(sql_plano);
 
 
     // Cria a variável do tipo ResultSet para armazenar os dados que estão no banco
     ResultSet dados_aluno = stm_aluno.executeQuery();
+    ResultSet dados_pagamento = stm_pagamento.executeQuery();
+    ResultSet dados_plano = stm_plano.executeQuery();
 
-    while ( dados_aluno.next() ) {
-      out.print(dados_aluno.getString("nome"));
-   }
-   
+    
     out.print("<div class='container'>");
     out.print("<div class='main-content'>");
-    out.print("<div class='section'>");
-    out.print("<h2>Aluno</h2>");
-    out.print("<table id='alunosTable'>");
-    out.print("<thead>");
-    out.print("<tr>");
-    out.print("<th>CPF</th>");
-    out.print("<th>Nome</th>");
-    out.print("<th>Idade</th>");
-    out.print("<th>Email</th>");
-    out.print("<th>Senha</th>");
-    out.print("<th>Ações</th>");
-    out.print("</tr>");
-    out.print("</thead>");
-    out.print("<tbody>");
-    out.print("<tr>");
-    
-    while ( dados_aluno.next() ) {
-    out.print("<td>123.456.789-00</td>");
-    out.print("<td>João Silva</td>");
-    out.print("<td>25</td>");
-    out.print("<td>joao@email.com</td>");
-    out.print("<td>****</td>");
+        out.print("<div class='section'>");
+            out.print("<h2>Aluno</h2>");
+            out.print("<table id='alunosTable'>");
+                out.print("<thead>");
+                    out.print("<tr>");
+                        out.print("<th>CPF</th>");
+                        out.print("<th>Nome</th>");
+                        out.print("<th>Idade</th>");
+                        out.print("<th>Email</th>");
+                        out.print("<th>Senha</th>");
+                        out.print("<th>Ações</th>");
+                    out.print("</tr>");
+                out.print("</thead>");
+                out.print("<tbody>");
+                    out.print("<tr>");
+                    while ( dados_aluno.next() ) {
+                        out.print("<td>"+ dados_aluno.getString("cpf") + "</td>" );
+                        out.print("<td>" + dados_aluno.getString("nome")+ "</td>");
+                        out.print("<td>" + dados_aluno.getString("nasc")+ "</td>");
+                        out.print("<td>" + dados_aluno.getString("email")+"</td>");
+                        out.print("<td>" + dados_aluno.getString("senha")+ "</td>");
     }
 
-    out.print("<td class='buttons'>");
-    out.print("<button onclick='alterarEmail(\"123.456.789-00\")'>Alterar Email</button>");
-    out.print("<button onclick='alterarSenha(\"123.456.789-00\")'>Alterar Senha</button>");
-    out.print("</td>");
-    out.print("</tr>");
-    out.print("</tbody>");
-    out.print("</table>");
-    out.print("</div>");
+                    out.print("<td class='buttons'>");
+                        out.print("<button onclick='alterarEmail(\"123.456.789-00\")'>Alterar Email</button>");
+                        out.print("<button onclick='alterarSenha(\"123.456.789-00\")'>Alterar Senha</button>");
+                    out.print("</td>");
+                    out.print("</tr>");
+                out.print("</tbody>");
+            out.print("</table>");
+        out.print("</div>");
+        
 
-    out.print("<div class='section'>");
-    out.print("<h2>Assinatura</h2>");
-    out.print("<table id='assinaturasTable'>");
-    out.print("<thead>");
-    out.print("<tr>");
-    out.print("<th>Assinatura</th>");
-    out.print("<th>Aluno</th>");
-    out.print("<th>Plano</th>");
-    out.print("<th>Data de Assinatura</th>");
-    out.print("<th>Forma de Pagamento</th>");
-    out.print("<th>Vencimento</th>");
-    out.print("<th>Ações</th>");
-    out.print("</tr>");
-    out.print("</thead>");
-    out.print("<tbody>");
-    out.print("<tr>");
-    out.print("<td>1</td>");
-    out.print("<td>João Silva</td>");
-    out.print("<td>Mensal</td>");
-    out.print("<td>01/01/2024</td>");
-    out.print("<td>Cartão</td>");
-    out.print("<td>01/02/2024</td>");
-    out.print("<td class='buttons'>");
-    out.print("<button onclick='renovarMensalidade(\"1\")'>Renovar</button>");
-    out.print("<button onclick='realizarPagamento(\"1\")'>Pagar</button>");
-    out.print("</td>");
-    out.print("</tr>");
-    out.print("</tbody>");
-    out.print("</table>");
+        out.print("<div class='section'>");
+            out.print("<h2>Assinatura</h2>");
+            out.print("<table id='assinaturasTable'>");
+                out.print("<thead>");
+                    out.print("<tr>");
+                        out.print("<th>Assinatura</th>");
+                        out.print("<th>Aluno</th>");
+                        out.print("<th>Plano</th>");
+                        out.print("<th>Data de Assinatura</th>" );
+                        out.print("<th>Forma de Pagamento</th>" );
+                        out.print("<th>Vencimento</th>");
+                        out.print("<th>Ações</th>");
+                    out.print("</tr>");
+                out.print("</thead>");
+                out.print("<tbody>");
+                    out.print("<tr>");
+                        while(dados_pagamento.next()) {
+                        out.print("<td>" + dados_pagamento.getString("id_pagamento") + "</td>");
+                        out.print("<td>" + dados_pagamento.getString("id_plano") + "</td>");
+                        out.print("<td>" + dados_pagamento.getString("forma_pagamento") + "</td>");
+                        out.print("<td>" + dados_pagamento.getString("data_pagamento") + "</td>");
+                        
+                        out.print("<td class='buttons'>");
+                            out.print("<button onclick='renovarMensalidade(\"1\")'>Renovar</button>");
+                            out.print("<button onclick='realizarPagamento(\"1\")'>Pagar</button>");
+                        out.print("</td>");
+                    out.print("</tr>");
+                out.print("</tbody>");
+            out.print("</table>");
+                        }
+        out.print("</div>");
+    
+        out.print("<div class='section'>");
+            out.print("<h2>Plano</h2>");
+            out.print("<table id='planosTable'>");
+                out.print("<thead>");
+                    out.print("<tr>");
+                        out.print("<th>Plano </th>");
+                        out.print("<th>Valor</th>" );
+                        out.print("<th>Duração</th>");
+                    out.print("</tr>");
+                out.print("</thead>");
+                out.print("<tbody></tbody>");
+            out.print("</table>");
+        out.print("</div>");
     out.print("</div>");
-
-    out.print("<div class='section'>");
-    out.print("<h2>Plano</h2>");
-    out.print("<table id='planosTable'>");
-    out.print("<thead>");
-    out.print("<tr>");
-    out.print("<th>Plano</th>");
-    out.print("<th>Valor</th>");
-    out.print("<th>Duração</th>");
-    out.print("</tr>");
-    out.print("</thead>");
-    out.print("<tbody></tbody>");
-    out.print("</table>");
-    out.print("</div>");
-    out.print("</div>");
-    out.print("</div>");
-    %>
-
+out.print("</div>");
+%>%>
     <script src="script.js"></script>
 </body>
 </html>
