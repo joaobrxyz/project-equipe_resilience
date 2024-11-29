@@ -1,3 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    if (session.getAttribute("usuario") == null) {
+        out.print("<script>");
+        out.print("window.location.href = 'login.html';");
+        out.print("</script>");
+    } else {
+%>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +14,7 @@
   <link rel="stylesheet" href="../style/cadastro.css">
 </head>
 <body>
-  <a href="index.jsp" class="btn-voltar">Voltar</a>
+  <a href="../admin/" class="btn-voltar">Voltar</a>
   
   <div class="container">
     <h1>Alterar valor</h1>
@@ -26,3 +34,6 @@
   </div>
 </body>
 </html>
+<%
+    }
+%>
