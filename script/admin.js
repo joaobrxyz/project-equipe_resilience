@@ -21,3 +21,22 @@ function excluirPagamento(idPagamento) {
         window.location.href = "?excluir_id_pagamento=" + idPagamento;
     }
 }
+function resetarSenha(cpf) {
+    if (confirm("Tem certeza que deseja resetar a senha deste aluno?")) {
+        window.location.href = "?resetar_cpf=" + cpf;
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    // Verificar se a URL contém o parâmetro 'scroll'
+    const urlParams = new URLSearchParams(window.location.search);
+    const scrollTarget = urlParams.get('scroll');
+
+    if (scrollTarget) {
+        // Procurar a div correspondente ao ID
+        const targetDiv = document.getElementById(scrollTarget);
+        if (targetDiv) {
+            // Rolagem suave até a div
+            targetDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
