@@ -37,7 +37,7 @@
 
     if (dados.next()) {
         // Login OK
-        session.setAttribute("usuario", dados.getString("user"));
+        session.setAttribute("admin", dados.getString("user"));
         response.sendRedirect("../admin");
     } else {
         // Login INCORRETO

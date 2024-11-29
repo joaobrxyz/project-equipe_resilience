@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    if (session.getAttribute("usuario") == null) {
+    if (session.getAttribute("admin") == null) {
         out.print("<script>");
         out.print("window.location.href = 'login.html';");
         out.print("</script>");
